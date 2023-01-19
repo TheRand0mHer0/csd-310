@@ -6,7 +6,9 @@ db = client.pytech
 
 def insert_one(student_obj):
     student_obj_id = db.students.insert_one(student_obj).inserted_id
-    print(f'Inserted student {student_obj.first_name} {student_obj.last_name} into students collection with document_id {student_obj_id}');
+    first_name = student_obj.get('first_name')
+    last_name = student_obj.get('last_name')
+    print(f'Inserted student {first_name} {last_name} into students collection with document_id {student_obj_id}');
     return 
 
 
