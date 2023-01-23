@@ -7,12 +7,18 @@ db = client.pytech
 def find():
     all_students = db.students.find({})
     for student in all_students:
-        print(f'Student Id: {student.student_id}\nFirst Name: {student.first_name}\nLast Name: {student.last_name}\n\n')
+        student_id = student.get('student_id')
+        first_name = student.get('first_name')
+        last_name = student.get('last_name')
+        print(f'Student Id: {student_id}\nFirst Name: {first_name}\nLast Name: {last_name}\n\n')
     return all_students
-    
+
 def find_one(student_id):
     student = db.students.find_one({"student_id": student_id})
-    print(f'Student Id: {student.student_id}\nFirst Name: {student.first_name}\nLast Name: {student.last_name}\n\n')
+    student_id = student.get('student_id')
+    first_name = student.get('first_name')
+    last_name = student.get('last_name')
+    print(f'Student Id: {student_id}\nFirst Name: {first_name}\nLast Name: {last_name}\n\n')
     return student
     
 
